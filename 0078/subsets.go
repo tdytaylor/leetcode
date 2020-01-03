@@ -5,6 +5,12 @@ import "fmt"
 func main() {
 	nums := []int{1, 2, 3}
 	fmt.Println(trySubsets2(nums))
+	fmt.Println("-------")
+	slice := []int{0, 1, 2, 3}
+	fmt.Printf("slice: %v slice addr %p \n", slice, &slice)
+
+	ret := changeSlice(slice)
+	fmt.Printf("slice: %v ret: %v slice addr %p \n", slice, &slice, ret)
 }
 
 // 第一次尝试
@@ -27,4 +33,25 @@ func trySubsets2(nums []int) [][]int {
 		}
 	}
 	return result
+}
+
+// 使用回溯算法求解所有解
+func subsets(nums []int) [][]int {
+	//backtrack := func(index int, nums []int, result [][]int, cache []int) {
+	//
+	//}
+	//
+	//var cache []int
+
+	for i, len := 0, len(nums); i < len; i++ {
+
+	}
+
+	return nil
+}
+
+func changeSlice(nums []int) []int {
+	fmt.Printf("func: %p \n", &nums)
+	nums[1] = 11
+	return nums
 }
