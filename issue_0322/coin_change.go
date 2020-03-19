@@ -1,4 +1,4 @@
-package _322
+package issue_0322
 
 func coinChange(coins []int, amount int) int {
 	len, val := len(coins), make([]int, amount+1)

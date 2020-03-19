@@ -1,4 +1,4 @@
-package _322
+package issue_0322
 
 import "testing"
 
