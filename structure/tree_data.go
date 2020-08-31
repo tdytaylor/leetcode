@@ -1,4 +1,4 @@
-package datastruct
+package structure
 
 type TreeNode struct {
 	Val   int
