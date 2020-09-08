@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	. "leetcode/datastruct"
+	. "github.com/tdytaylor/leetcode/structure"
 )
 
 func main() {
