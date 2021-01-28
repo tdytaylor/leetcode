@@ -1,8 +1,8 @@
 package issue_0094
 
 import (
-	"github.com/emirpasic/gods/stacks/arraystack"
 	. "github.com/tdytaylor/leetcode/structure"
+	"github.com/tdytaylor/leetcode/structure/stack"
 )
 
 /**
@@ -29,16 +29,23 @@ func traversal(slice []int, root *TreeNode) (rightSlice []int) {
 	return
 }
 
-// 树遍历-stack
-func inorderTraversal2(root *TreeNode) []int {
+// 树前序遍历-Stack
+func inorderTraversalByStack(root *TreeNode) []int {
 	var res []int
-	cur := root
-	stack := arraystack.New()
-	for cur != nil || !stack.Empty() {
-		for cur.Left != nil {
-			stack.Push(cur)
-			cur = cur.Left
+	stack := stack.NewStack()
+	node := root
+	for node != nil || !stack.Empty() {
+		// 迭代访问节点的左孩子，并入栈
+		for node != nil {
+			stack.Push(node)
+			node = node.Left
 		}
-		node, _ := stack.Pop()
+
+		if !stack.Empty() {
+			node = stack.Pop().(*TreeNode)
+
+			node = node.Right
+		}
 	}
+	return res
 }
