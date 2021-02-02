@@ -7,7 +7,7 @@ type TreeNode struct {
 }
 
 func longestUnivaluePath(root *TreeNode) int {
-
+	return 0
 }
 
 func arrowLength(node *TreeNode) int {
