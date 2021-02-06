@@ -13,7 +13,7 @@ func isPalindrome(head *ListNode) bool {
 	return traverse(head)
 }
 
-// 精辟
+// 精辟：学习思想。时间和空间复杂度都是：O(N)
 func traverse(head *ListNode) bool {
 	if head == nil {
 		return true
@@ -22,4 +22,37 @@ func traverse(head *ListNode) bool {
 	b = b && (head.Val == left.Val)
 	left = left.Next
 	return b
+}
+
+// 第二种方式
+func isPalindrome2(head *ListNode) bool {
+	slow, fast, left := head, head, head
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+	}
+
+	if fast != nil {
+		slow = slow.Next
+	}
+
+	right := reverse(slow)
+
+	for right != nil {
+		if left.Val != right.Val {
+			return true
+		}
+	}
+	return false
+}
+
+func reverse(head *ListNode) *ListNode {
+	var pre, cur *ListNode = nil, head
+	for cur != nil {
+		nex := cur.Next
+		cur.Next = pre
+		pre = cur
+		cur = nex
+	}
+	return pre
 }

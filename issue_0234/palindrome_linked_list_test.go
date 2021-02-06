@@ -1,6 +1,7 @@
 package issue_0234
 
 import (
+	"fmt"
 	. "github.com/tdytaylor/leetcode/structure"
 	"testing"
 )
@@ -36,4 +37,20 @@ func Test_isPalindrome(t *testing.T) {
 			}
 		})
 	}
+}
+
+func Test_findMiddle(t *testing.T) {
+	l1 := &ListNode{
+		Val: 1,
+	}
+	l1.Append(2).Append(2).Append(1)
+
+	fmt.Println(findMiddle(l1))
+
+	l2 := &ListNode{
+		Val: 1,
+	}
+	l2.Append(2)
+	fmt.Println(findMiddle(l2))
+
 }
