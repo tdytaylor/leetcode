@@ -27,7 +27,9 @@ func traverse(head *ListNode) bool {
 // 第二种方式
 func isPalindrome2(head *ListNode) bool {
 	slow, fast, left := head, head, head
+	var slowPre *ListNode
 	for fast != nil && fast.Next != nil {
+		slowPre = slow // 恢复链表
 		slow = slow.Next
 		fast = fast.Next.Next
 	}
@@ -37,13 +39,17 @@ func isPalindrome2(head *ListNode) bool {
 	}
 
 	right := reverse(slow)
+	rightHead := right // 恢复链表
 
 	for right != nil {
 		if left.Val != right.Val {
-			return true
+			return false
 		}
+		right = right.Next
+		left = left.Next
 	}
-	return false
+	slowPre.Next = reverse(rightHead) // 恢复链表
+	return true
 }
 
 func reverse(head *ListNode) *ListNode {
