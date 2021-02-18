@@ -15,7 +15,7 @@ func main() {
 	fmt.Println(reverseList(l1))
 }
 
-// leetcode最优解
+// LeetCode最优解
 func reverseList(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
